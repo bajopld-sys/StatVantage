@@ -169,17 +169,21 @@
   .league-picker select:hover { border-color: var(--ink-2); }
   .league-picker select:focus { outline: 2px solid var(--cat-blue); outline-offset: 1px; }
   .quickNav {
-    position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 6px;
-    margin: 0 0 22px; padding: 10px 12px; background: rgba(23,24,26,0.92);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow);
+    position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 7px;
+    margin: 0 0 22px; padding: 12px 14px;
+    background: linear-gradient(100deg, #1e3a6e 0%, #3a2a7a 55%, #5a2a72 100%);
+    border: 1px solid rgba(180,160,255,0.35);
+    border-radius: 12px; box-shadow: 0 6px 22px -6px rgba(79,157,255,0.45), var(--shadow);
   }
   .quickNav button {
-    background: transparent; color: var(--ink-muted); border: 1px solid var(--border);
-    border-radius: 999px; padding: 6px 13px; font-size: 12px; font-weight: 600;
-    cursor: pointer; white-space: nowrap; transition: color .15s, border-color .15s, background-color .15s;
+    background: rgba(255,255,255,0.10); color: #f0f0ff; border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 700;
+    cursor: pointer; white-space: nowrap; transition: all .15s ease;
   }
-  .quickNav button:hover { color: var(--ink); border-color: var(--cat-blue); background: rgba(79,157,255,0.08); }
+  .quickNav button:hover {
+    background: #fff; color: #24246e; border-color: #fff; transform: translateY(-1px);
+    box-shadow: 0 3px 10px -2px rgba(0,0,0,0.4);
+  }
   /* Пил-сегменти за W-D-L / 1X2 — вместо суров текст "10-0-3" */
   .wdlPill { display: inline-flex; gap: 3px; align-items: center; font-weight: 700;
               font-variant-numeric: tabular-nums; font-size: 12.5px; }
