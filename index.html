@@ -126,6 +126,25 @@
   .predTable td:not(.mLabel):not(.note) { font-weight: 650; font-variant-numeric: tabular-nums; }
   .predTable .avgRow { border-top: 2px solid var(--cat-blue); background: rgba(79,157,255,0.08); }
   .predTable .avgRow td { color: var(--cat-blue) !important; font-weight: 800 !important; }
+  .mbPanel {
+    margin-top: 12px; border: 1px solid var(--grid-line); border-radius: 10px;
+    padding: 4px 12px; background: rgba(255,255,255,0.015);
+  }
+  .mbPanel summary {
+    cursor: pointer; padding: 8px 2px; font-size: 12.5px; color: var(--ink-2);
+    list-style: none;
+  }
+  .mbPanel summary::-webkit-details-marker { display: none; }
+  .mbPanel summary::before { content: "▸ "; color: var(--cat-blue); }
+  .mbPanel[open] summary::before { content: "▾ "; }
+  .mbPanel summary b { color: var(--ink); }
+  .mbBody {
+    padding: 4px 2px 12px; font-size: 12px; color: var(--ink-2); line-height: 1.7;
+    border-top: 1px solid var(--grid-line); margin-top: 2px;
+  }
+  .mbBody b { color: var(--ink); }
+  .mbFlag { color: var(--cat-orange); }
+  .mbBody .note { color: var(--ink-muted); }
   .picker {
     display: flex; align-items: center; gap: 12px; margin: 14px 0 20px;
     padding: 14px 18px; background: var(--surface); border: 1px solid var(--border);
@@ -237,6 +256,35 @@
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (10/8 играча)</td><td>36%</td><td>29%</td><td>35%</td><td>49%</td><td>55%</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>33%</td><td>32%</td><td>35%</td><td>—</td><td>—</td></tr>
 </table>
+
+<details class="mbPanel">
+<summary>Модел Б (диагностично) — Над2.5: <b>ДА</b> · ГГ: <b>ДА</b> · 1X2 lean: Fredrikstad FK (H2H tie-breaker)</summary>
+<div class="mbBody">
+  <div><b>H2H</b> (9 срещи, тежест=90%): lean=Fredrikstad FK
+       · Над2.5=53% · ГГ=53%</div>
+  
+  <div><b>Форма:</b> 5 мача — Fredrikstad FK=10, Sandefjord Fotball=11
+       | 10 мача — Fredrikstad FK=11, Sandefjord Fotball=9
+       → разминаване, лек lean по 10-те (гап 2 срещу 1), winner=away</div>
+  <div><b>Домакин/Гост:</b> Fredrikstad FK(дом)=8
+       [3-1-2 у дома] срещу
+       Sandefjord Fotball(гост)=8
+       [2-0-5 навън] → winner=—</div>
+  <div>Fredrikstad FK у дома — срещу над него: 1-1-2 · срещу под него: 2-0-0 <span class='note'>(общо класиране #11)</span></div><div>Sandefjord Fotball навън — срещу над него: 1-0-5 · срещу под него: 1-0-0 <span class='note'>(общо класиране #10)</span></div><div class='mbFlag'>⚑ Sandefjord Fotball е НАД Fredrikstad FK в класирането — релевантна форма на Fredrikstad FK у дома срещу такива съперници: 1-1-2</div>
+  <div><b>Полувремена:</b> 1-во — Fredrikstad FK=12, Sandefjord Fotball=14
+       | 2-ро — Fredrikstad FK=8, Sandefjord Fotball=8
+       → без swap, winner=home</div>
+  
+  <div class="note">(диагностично, НЕ препоръчан pick) 1X2: 1 (H2H tie-breaker)
+       [гласове: домакин=1, гост=1] — за 1X2 ползвай Dixon-Coles</div>
+  <div><b>Над2.5:</b> Fredrikstad FK=5, Sandefjord Fotball=9 (гап=4)
+       → ДА <span class="note">[съгласие в ранговете]</span></div>
+  <div><b>ГГ:</b> Fredrikstad FK=4, Sandefjord Fotball=6 (гап=2)
+       → ДА <span class="note">[съгласие в ранговете]</span></div>
+  <div class="note">Venue-специфична форма за вкарване: Fredrikstad FK(у дома)=1.50 гола/мач
+       | Sandefjord Fotball(навън)=1.00 гола/мач</div>
+</div>
+</details>
 </div>
 
 <div class="predCard">
@@ -248,6 +296,35 @@
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (9/10 играча)</td><td>32%</td><td>26%</td><td>42%</td><td>60%</td><td>63%</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>25%</td><td>26%</td><td>49%</td><td>—</td><td>—</td></tr>
 </table>
+
+<details class="mbPanel">
+<summary>Модел Б (диагностично) — Над2.5: <b>ДА</b> · ГГ: <b>ДА</b> · 1X2 lean: Viking FK (твърд)</summary>
+<div class="mbBody">
+  <div><b>H2H</b> (4 срещи, тежест=40%): lean=Viking FK
+       · Над2.5=100% · ГГ=75%</div>
+  <div class='mbFlag'>⚑ IK Start има 1 мач(а) с поведа ≥2 гола без победа</div>
+  <div><b>Форма:</b> 5 мача — IK Start=8, Viking FK=3
+       | 10 мача — IK Start=11, Viking FK=1
+       → съгласие 5≈10, winner=away</div>
+  <div><b>Домакин/Гост:</b> IK Start(дом)=11
+       [1-3-2 у дома] срещу
+       Viking FK(гост)=2
+       [5-1-2 навън] → winner=away</div>
+  <div>IK Start у дома — срещу над него: 1-3-2 · срещу под него: 0-0-0 <span class='note'>(общо класиране #14)</span></div><div>Viking FK навън — срещу над него: 0-0-0 · срещу под него: 5-1-2 <span class='note'>(общо класиране #2)</span></div><div class='mbFlag'>⚑ Viking FK е НАД IK Start в класирането — релевантна форма на IK Start у дома срещу такива съперници: 1-3-2</div>
+  <div><b>Полувремена:</b> 1-во — IK Start=8, Viking FK=1
+       | 2-ро — IK Start=10, Viking FK=2
+       → без swap, winner=away</div>
+  
+  <div class="note">(диагностично, НЕ препоръчан pick) 1X2: 2 (твърд)
+       [гласове: домакин=0, гост=3] — за 1X2 ползвай Dixon-Coles</div>
+  <div><b>Над2.5:</b> IK Start=6, Viking FK=3 (гап=3)
+       → ДА <span class="note">[съгласие в ранговете]</span></div>
+  <div><b>ГГ:</b> IK Start=3, Viking FK=4 (гап=1)
+       → ДА <span class="note">[съгласие в ранговете]</span></div>
+  <div class="note">Venue-специфична форма за вкарване: IK Start(у дома)=1.00 гола/мач
+       | Viking FK(навън)=1.38 гола/мач</div>
+</div>
+</details>
 </div>
 
 <div class="predCard">
@@ -259,6 +336,35 @@
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (10/10 играча)</td><td>36%</td><td>27%</td><td>37%</td><td>57%</td><td>61%</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>25%</td><td>25%</td><td>49%</td><td>—</td><td>—</td></tr>
 </table>
+
+<details class="mbPanel">
+<summary>Модел Б (диагностично) — Над2.5: <b>ДА</b> · ГГ: <b>ДА</b> · 1X2 lean: Tromsø IL (лек превес)</summary>
+<div class="mbBody">
+  <div><b>H2H</b> (7 срещи, тежест=70%): lean=Aalesunds FK
+       · Над2.5=68% · ГГ=84%</div>
+  
+  <div><b>Форма:</b> 5 мача — Aalesunds FK=10, Tromsø IL=6
+       | 10 мача — Aalesunds FK=8, Tromsø IL=2
+       → съгласие 5≈10, winner=away</div>
+  <div><b>Домакин/Гост:</b> Aalesunds FK(дом)=10
+       [1-5-2 у дома] срещу
+       Tromsø IL(гост)=4
+       [3-2-1 навън] → winner=away</div>
+  <div>Aalesunds FK у дома — срещу над него: 1-3-2 · срещу под него: 0-2-0 <span class='note'>(общо класиране #12)</span></div><div>Tromsø IL навън — срещу над него: 0-0-1 · срещу под него: 3-2-0 <span class='note'>(общо класиране #3)</span></div><div class='mbFlag'>⚑ Tromsø IL е НАД Aalesunds FK в класирането — релевантна форма на Aalesunds FK у дома срещу такива съперници: 1-3-2</div>
+  <div><b>Полувремена:</b> 1-во — Aalesunds FK=10, Tromsø IL=7
+       | 2-ро — Aalesunds FK=5, Tromsø IL=3
+       → без swap, winner=away</div>
+  
+  <div class="note">(диагностично, НЕ препоръчан pick) 1X2: 2 (лек превес)
+       [гласове: домакин=0, гост=3] — за 1X2 ползвай Dixon-Coles</div>
+  <div><b>Над2.5:</b> Aalesunds FK=5, Tromsø IL=10 (гап=5)
+       → ДА <span class="note">[съгласие в ранговете]</span></div>
+  <div><b>ГГ:</b> Aalesunds FK=2, Tromsø IL=9 (гап=7)
+       → ДА <span class="note">[H2H fallback (84%)]</span></div>
+  <div class="note">Venue-специфична форма за вкарване: Aalesunds FK(у дома)=1.62 гола/мач
+       | Tromsø IL(навън)=1.33 гола/мач</div>
+</div>
+</details>
 </div>
 
 <div class="predCard">
@@ -270,6 +376,35 @@
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (9/6 играча)</td><td>42%</td><td>26%</td><td>32%</td><td>63%</td><td>65%</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>35%</td><td>29%</td><td>36%</td><td>—</td><td>—</td></tr>
 </table>
+
+<details class="mbPanel">
+<summary>Модел Б (диагностично) — Над2.5: <b>ДА</b> · ГГ: <b>ДА</b> · 1X2 lean: KFUM Oslo (твърд)</summary>
+<div class="mbBody">
+  <div><b>H2H</b> (7 срещи, тежест=70%): lean=KFUM Oslo
+       · Над2.5=42% · ГГ=58%</div>
+  
+  <div><b>Форма:</b> 5 мача — KFUM Oslo=10, Kristiansund BK=12
+       | 10 мача — KFUM Oslo=10, Kristiansund BK=12
+       → съгласие 5≈10, winner=home</div>
+  <div><b>Домакин/Гост:</b> KFUM Oslo(дом)=8
+       [3-1-4 у дома] срещу
+       Kristiansund BK(гост)=10
+       [1-1-5 навън] → winner=home</div>
+  <div>KFUM Oslo у дома — срещу над него: 2-1-4 · срещу под него: 1-0-0 <span class='note'>(общо класиране #13)</span></div><div>Kristiansund BK навън — срещу над него: 1-1-5 · срещу под него: 0-0-0 <span class='note'>(общо класиране #13)</span></div><div class='mbFlag'>Kristiansund BK е ПОД KFUM Oslo в класирането — релевантна форма на KFUM Oslo у дома срещу такива съперници: 1-0-0</div>
+  <div><b>Полувремена:</b> 1-во — KFUM Oslo=9, Kristiansund BK=15
+       | 2-ро — KFUM Oslo=9, Kristiansund BK=6
+       </div>
+  <div class='mbFlag'>⚑ ФЛАГ ОБРЪЩАЛКА (слаб) — по-силна страна: home</div>
+  <div class="note">(диагностично, НЕ препоръчан pick) 1X2: 1 (твърд)
+       [гласове: домакин=2, гост=0] — за 1X2 ползвай Dixon-Coles</div>
+  <div><b>Над2.5:</b> KFUM Oslo=7, Kristiansund BK=9 (гап=2)
+       → ДА <span class="note">[съгласие в ранговете]</span></div>
+  <div><b>ГГ:</b> KFUM Oslo=6, Kristiansund BK=6 (гап=0)
+       → ДА <span class="note">[съгласие в ранговете]</span></div>
+  <div class="note">Venue-специфична форма за вкарване: KFUM Oslo(у дома)=1.00 гола/мач
+       | Kristiansund BK(навън)=0.57 гола/мач</div>
+</div>
+</details>
 </div>
 
 <div class="predCard">
@@ -281,6 +416,35 @@
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (9/10 играча)</td><td>45%</td><td>26%</td><td>28%</td><td>59%</td><td>62%</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>50%</td><td>25%</td><td>24%</td><td>—</td><td>—</td></tr>
 </table>
+
+<details class="mbPanel">
+<summary>Модел Б (диагностично) — Над2.5: <b>НЕ</b> · ГГ: <b>ДА</b> · 1X2 lean: Molde FK (лек превес)</summary>
+<div class="mbBody">
+  <div><b>H2H</b> (10 срещи, тежест=100%): lean=Sarpsborg 08
+       · Над2.5=68% · ГГ=68%</div>
+  
+  <div><b>Форма:</b> 5 мача — Molde FK=7, Sarpsborg 08=2
+       | 10 мача — Molde FK=3, Sarpsborg 08=4
+       → разминаване, лек lean по 5-те (гап 5 срещу 1), winner=away</div>
+  <div><b>Домакин/Гост:</b> Molde FK(дом)=4
+       [5-0-2 у дома] срещу
+       Sarpsborg 08(гост)=7
+       [2-1-4 навън] → winner=home</div>
+  <div>Molde FK у дома — срещу над него: 0-0-1 · срещу под него: 5-0-1 <span class='note'>(общо класиране #5)</span></div><div>Sarpsborg 08 навън — срещу над него: 0-0-1 · срещу под него: 2-1-3 <span class='note'>(общо класиране #6)</span></div><div class='mbFlag'>Sarpsborg 08 е ПОД Molde FK в класирането — релевантна форма на Molde FK у дома срещу такива съперници: 5-0-1</div>
+  <div><b>Полувремена:</b> 1-во — Molde FK=4, Sarpsborg 08=4
+       | 2-ро — Molde FK=4, Sarpsborg 08=11
+       → без swap, winner=home</div>
+  
+  <div class="note">(диагностично, НЕ препоръчан pick) 1X2: 1 (лек превес)
+       [гласове: домакин=2, гост=1] — за 1X2 ползвай Dixon-Coles</div>
+  <div><b>Над2.5:</b> Molde FK=7, Sarpsborg 08=11 (гап=4)
+       → НЕ <span class="note">[съгласие в ранговете]</span></div>
+  <div><b>ГГ:</b> Molde FK=4, Sarpsborg 08=6 (гап=2)
+       → ДА <span class="note">[съгласие в ранговете]</span></div>
+  <div class="note">Venue-специфична форма за вкарване: Molde FK(у дома)=2.14 гола/мач
+       | Sarpsborg 08(навън)=1.00 гола/мач</div>
+</div>
+</details>
 </div>
 
 <div class="predCard">
@@ -292,6 +456,35 @@
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (10/11 играча)</td><td>41%</td><td>27%</td><td>32%</td><td>58%</td><td>62%</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>43%</td><td>23%</td><td>34%</td><td>—</td><td>—</td></tr>
 </table>
+
+<details class="mbPanel">
+<summary>Модел Б (диагностично) — Над2.5: <b>ДА</b> · ГГ: <b>ДА</b> · 1X2 lean: SK Brann (твърд)</summary>
+<div class="mbBody">
+  <div><b>H2H</b> (9 срещи, тежест=90%): lean=SK Brann
+       · Над2.5=58% · ГГ=58%</div>
+  
+  <div><b>Форма:</b> 5 мача — SK Brann=9, Rosenborg BK=4
+       | 10 мача — SK Brann=4, Rosenborg BK=5
+       → разминаване, лек lean по 5-те (гап 5 срещу 1), winner=away</div>
+  <div><b>Домакин/Гост:</b> SK Brann(дом)=9
+       [3-0-4 у дома] срещу
+       Rosenborg BK(гост)=10
+       [1-1-4 навън] → winner=home</div>
+  <div>SK Brann у дома — срещу над него: 0-0-3 · срещу под него: 3-0-1 <span class='note'>(общо класиране #8)</span></div><div>Rosenborg BK навън — срещу над него: 0-0-3 · срещу под него: 1-1-1 <span class='note'>(общо класиране #9)</span></div><div class='mbFlag'>Rosenborg BK е ПОД SK Brann в класирането — релевантна форма на SK Brann у дома срещу такива съперници: 3-0-1</div>
+  <div><b>Полувремена:</b> 1-во — SK Brann=3, Rosenborg BK=6
+       | 2-ро — SK Brann=3, Rosenborg BK=8
+       → без swap, winner=home</div>
+  
+  <div class="note">(диагностично, НЕ препоръчан pick) 1X2: 1 (твърд)
+       [гласове: домакин=2, гост=1] — за 1X2 ползвай Dixon-Coles</div>
+  <div><b>Над2.5:</b> SK Brann=1, Rosenborg BK=9 (гап=8)
+       → ДА <span class="note">[H2H fallback (58%)]</span></div>
+  <div><b>ГГ:</b> SK Brann=1, Rosenborg BK=10 (гап=9)
+       → ДА <span class="note">[H2H fallback (58%)]</span></div>
+  <div class="note">Venue-специфична форма за вкарване: SK Brann(у дома)=1.57 гола/мач
+       | Rosenborg BK(навън)=0.50 гола/мач</div>
+</div>
+</details>
 </div>
 <p class="note">За 1X2 — три модела (Dixon-Coles, Модел В v1 — xg/xa от състава,
 Модел В v2 — Sofascore player атрибути). За Над2.5/ГГ — само v1+v2 (DC не
@@ -653,14 +846,15 @@
 <h2 data-section="pred">🔮 Прогнози за предстоящия кръг</h2>
 
 <div class="predCard">
-<h3><label class="pairPickWrap"><input type="checkbox" class="pairPick" data-home="BK Häcken" data-away="Kalmar FF" title="Зареди двойката в таблиците отдолу"></label>BK Häcken — Kalmar FF <span class="predDate">2026-08-01 16:00 · прогнозен състав</span></h3>
+<h3><label class="pairPickWrap"><input type="checkbox" class="pairPick" data-home="BK Häcken" data-away="Kalmar FF" title="Зареди двойката в таблиците отдолу"></label>BK Häcken — Kalmar FF <span class="predDate">2026-08-01 16:00 · потвърден състав</span></h3>
 <table class="predTable">
 <tr><th>Модел</th><th>1</th><th>X</th><th>2</th><th>Над2.5</th><th>ГГ</th></tr>
 <tr><td class='mLabel'>Dixon-Coles</td><td>51%</td><td>27%</td><td>22%</td><td>—</td><td>—</td></tr>
 <tr><td class='mLabel'>Модел В — v1 (xg/xa)</td><td colspan='5' class='note'>няма данни</td></tr>
-<tr><td class='mLabel'>Модел В — v2 (атрибути) (10/6 играча)</td><td>48%</td><td>24%</td><td>27%</td><td>66%</td><td>66%</td></tr>
-<tr class='avgRow'><td class='mLabel'>Средно</td><td>50%</td><td>26%</td><td>25%</td><td>—</td><td>—</td></tr>
+<tr><td class='mLabel'>Модел В — v2 (атрибути)</td><td>49%</td><td>24%</td><td>26%</td><td>65%</td><td>66%</td></tr>
+<tr class='avgRow'><td class='mLabel'>Средно</td><td>50%</td><td>26%</td><td>24%</td><td>—</td><td>—</td></tr>
 </table>
+
 </div>
 
 <div class="predCard">
@@ -672,6 +866,7 @@
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (9/10 играча)</td><td>41%</td><td>27%</td><td>33%</td><td>58%</td><td>62%</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>29%</td><td>24%</td><td>47%</td><td>—</td><td>—</td></tr>
 </table>
+
 </div>
 
 <div class="predCard">
@@ -683,6 +878,7 @@
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (7/8 играча)</td><td>45%</td><td>26%</td><td>29%</td><td>59%</td><td>62%</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>54%</td><td>24%</td><td>22%</td><td>—</td><td>—</td></tr>
 </table>
+
 </div>
 
 <div class="predCard">
@@ -694,6 +890,7 @@
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (8/10 играча)</td><td>44%</td><td>27%</td><td>29%</td><td>54%</td><td>58%</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>42%</td><td>27%</td><td>31%</td><td>—</td><td>—</td></tr>
 </table>
+
 </div>
 
 <div class="predCard">
@@ -705,6 +902,7 @@
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (11/10 играча)</td><td>47%</td><td>25%</td><td>28%</td><td>62%</td><td>64%</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>50%</td><td>24%</td><td>26%</td><td>—</td><td>—</td></tr>
 </table>
+
 </div>
 
 <div class="predCard">
@@ -716,6 +914,7 @@
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (5/10 играча)</td><td>35%</td><td>29%</td><td>36%</td><td>51%</td><td>57%</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>22%</td><td>21%</td><td>57%</td><td>—</td><td>—</td></tr>
 </table>
+
 </div>
 <p class="note">За 1X2 — три модела (Dixon-Coles, Модел В v1 — xg/xa от състава,
 Модел В v2 — Sofascore player атрибути). За Над2.5/ГГ — само v1+v2 (DC не
