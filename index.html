@@ -101,6 +101,13 @@
   @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
   .grid > div + div { border-left: 1px solid var(--grid-line); padding-left: 30px; }
   @media (max-width: 860px) { .grid > div + div { border-left: none; padding-left: 0; } }
+  /* venue-grid може да има повече от 2 елемента (Домакин/Гост по полувреме,
+     2026-08-02) — div+div сам не различава редовете, само nth-child(2n)
+     дава коректно border-left само на дясната колона, не на всеки следващ
+     елемент независимо от реда му. */
+  .venue-grid > div + div { border-left: none; padding-left: 0; }
+  .venue-grid > div:nth-child(2n) { border-left: 1px solid var(--grid-line); padding-left: 30px; }
+  @media (max-width: 860px) { .venue-grid > div:nth-child(2n) { border-left: none; padding-left: 0; } }
   .note { color: var(--ink-muted); font-size: 12px; margin-top: 10px; line-height: 1.5; }
   .predSection { border: 1px solid rgba(79,157,255,0.45);
                   box-shadow: var(--shadow), 0 0 0 1px rgba(79,157,255,0.08) inset; }
@@ -629,7 +636,7 @@
 
 <section class="card">
 <h2 data-section="2"><span class="num">2</span> 🆚 Домакин срещу гост</h2>
-<div class="grid">
+<div class="grid venue-grid">
 <div>
 <h3>Най-добър домакин</h3>
 <table><tr><th>#</th><th>Отбор</th><th>М</th><th>W-D-L</th><th>Г:Д</th><th>Точки</th></tr>
@@ -670,6 +677,91 @@
 <tr class='team-row' data-league="Eliteserien" data-team="Fredrikstad FK"><td>14</td><td class='tname'>Fredrikstad FK</td><td>8</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>1</b><b class='l'>6</b></span></td><td>6:19 (-13)</td><td>4</td></tr>
 <tr class='team-row' data-league="Eliteserien" data-team="IK Start"><td>15</td><td class='tname'>IK Start</td><td>9</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>1</b><b class='l'>7</b></span></td><td>10:24 (-14)</td><td>4</td></tr>
 <tr class='team-row' data-league="Eliteserien" data-team="KFUM Oslo"><td>16</td><td class='tname'>KFUM Oslo</td><td>6</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>2</b><b class='l'>4</b></span></td><td>7:15 (-8)</td><td>2</td></tr>
+</table>
+</div>
+
+<div>
+<h3>Домакин — 1-во полувреме</h3>
+<table><tr><th>#</th><th>Отбор</th><th>М</th><th>W-D-L</th><th>Г:Д</th><th>Точки</th></tr>
+<tr class='team-row rank-1' data-league="Eliteserien" data-team="Bodø/Glimt"><td>1</td><td class='tname'>Bodø/Glimt</td><td>8</td><td><span class='wdlPill'><b class='w'>7</b><b class='d'>0</b><b class='l'>1</b></span></td><td>10:1 (+9)</td><td>21</td></tr>
+<tr class='team-row rank-2' data-league="Eliteserien" data-team="Tromsø IL"><td>2</td><td class='tname'>Tromsø IL</td><td>9</td><td><span class='wdlPill'><b class='w'>5</b><b class='d'>3</b><b class='l'>1</b></span></td><td>8:3 (+5)</td><td>18</td></tr>
+<tr class='team-row rank-3' data-league="Eliteserien" data-team="Viking FK"><td>3</td><td class='tname'>Viking FK</td><td>6</td><td><span class='wdlPill'><b class='w'>5</b><b class='d'>0</b><b class='l'>1</b></span></td><td>12:5 (+7)</td><td>15</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Molde FK"><td>4</td><td class='tname'>Molde FK</td><td>8</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>3</b><b class='l'>1</b></span></td><td>8:4 (+4)</td><td>15</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Rosenborg BK"><td>5</td><td class='tname'>Rosenborg BK</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>5</b><b class='l'>0</b></span></td><td>10:4 (+6)</td><td>14</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Sarpsborg 08"><td>6</td><td class='tname'>Sarpsborg 08</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>4</b><b class='l'>0</b></span></td><td>6:3 (+3)</td><td>13</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="HamKam"><td>7</td><td class='tname'>HamKam</td><td>7</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>1</b><b class='l'>2</b></span></td><td>6:4 (+2)</td><td>13</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Vålerenga IF"><td>8</td><td class='tname'>Vålerenga IF</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>3</b><b class='l'>2</b></span></td><td>8:5 (+3)</td><td>12</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="KFUM Oslo"><td>9</td><td class='tname'>KFUM Oslo</td><td>9</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>3</b><b class='l'>3</b></span></td><td>7:5 (+2)</td><td>12</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="SK Brann"><td>10</td><td class='tname'>SK Brann</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>2</b><b class='l'>3</b></span></td><td>6:7 (-1)</td><td>11</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Fredrikstad FK"><td>11</td><td class='tname'>Fredrikstad FK</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>1</b><b class='l'>3</b></span></td><td>6:4 (+2)</td><td>10</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Lillestrøm SK"><td>12</td><td class='tname'>Lillestrøm SK</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>1</b><b class='l'>3</b></span></td><td>6:4 (+2)</td><td>10</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Aalesunds FK"><td>13</td><td class='tname'>Aalesunds FK</td><td>9</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>6</b><b class='l'>2</b></span></td><td>7:8 (-1)</td><td>9</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Sandefjord Fotball"><td>14</td><td class='tname'>Sandefjord Fotball</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>3</b><b class='l'>2</b></span></td><td>2:3 (-1)</td><td>9</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="IK Start"><td>15</td><td class='tname'>IK Start</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>0</b><b class='l'>5</b></span></td><td>4:8 (-4)</td><td>6</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Kristiansund BK"><td>16</td><td class='tname'>Kristiansund BK</td><td>7</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>5</b><b class='l'>2</b></span></td><td>2:5 (-3)</td><td>5</td></tr>
+</table>
+</div>
+<div>
+<h3>Гост — 1-во полувреме</h3>
+<table><tr><th>#</th><th>Отбор</th><th>М</th><th>W-D-L</th><th>Г:Д</th><th>Точки</th></tr>
+<tr class='team-row rank-1' data-league="Eliteserien" data-team="Viking FK"><td>1</td><td class='tname'>Viking FK</td><td>9</td><td><span class='wdlPill'><b class='w'>7</b><b class='d'>0</b><b class='l'>2</b></span></td><td>10:3 (+7)</td><td>21</td></tr>
+<tr class='team-row rank-2' data-league="Eliteserien" data-team="Bodø/Glimt"><td>2</td><td class='tname'>Bodø/Glimt</td><td>8</td><td><span class='wdlPill'><b class='w'>5</b><b class='d'>1</b><b class='l'>2</b></span></td><td>8:6 (+2)</td><td>16</td></tr>
+<tr class='team-row rank-3' data-league="Eliteserien" data-team="SK Brann"><td>3</td><td class='tname'>SK Brann</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>2</b><b class='l'>3</b></span></td><td>10:7 (+3)</td><td>11</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="IK Start"><td>4</td><td class='tname'>IK Start</td><td>9</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>5</b><b class='l'>2</b></span></td><td>6:7 (-1)</td><td>11</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Tromsø IL"><td>5</td><td class='tname'>Tromsø IL</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>4</b><b class='l'>1</b></span></td><td>4:3 (+1)</td><td>10</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Sarpsborg 08"><td>6</td><td class='tname'>Sarpsborg 08</td><td>8</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>4</b><b class='l'>2</b></span></td><td>8:8 (+0)</td><td>10</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Molde FK"><td>7</td><td class='tname'>Molde FK</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>3</b><b class='l'>2</b></span></td><td>6:7 (-1)</td><td>9</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Vålerenga IF"><td>8</td><td class='tname'>Vålerenga IF</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>2</b><b class='l'>3</b></span></td><td>5:7 (-2)</td><td>8</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Sandefjord Fotball"><td>9</td><td class='tname'>Sandefjord Fotball</td><td>8</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>0</b><b class='l'>6</b></span></td><td>3:8 (-5)</td><td>6</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Aalesunds FK"><td>10</td><td class='tname'>Aalesunds FK</td><td>6</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>2</b><b class='l'>3</b></span></td><td>2:6 (-4)</td><td>5</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Lillestrøm SK"><td>11</td><td class='tname'>Lillestrøm SK</td><td>8</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>5</b><b class='l'>3</b></span></td><td>1:6 (-5)</td><td>5</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Kristiansund BK"><td>12</td><td class='tname'>Kristiansund BK</td><td>8</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>2</b><b class='l'>5</b></span></td><td>1:7 (-6)</td><td>5</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="HamKam"><td>13</td><td class='tname'>HamKam</td><td>8</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>2</b><b class='l'>5</b></span></td><td>2:9 (-7)</td><td>5</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Fredrikstad FK"><td>14</td><td class='tname'>Fredrikstad FK</td><td>8</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>4</b><b class='l'>4</b></span></td><td>2:7 (-5)</td><td>4</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Rosenborg BK"><td>15</td><td class='tname'>Rosenborg BK</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>1</b><b class='l'>5</b></span></td><td>1:7 (-6)</td><td>4</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="KFUM Oslo"><td>16</td><td class='tname'>KFUM Oslo</td><td>6</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>3</b><b class='l'>3</b></span></td><td>4:10 (-6)</td><td>3</td></tr>
+</table>
+</div>
+<div>
+<h3>Домакин — 2-ро полувреме</h3>
+<table><tr><th>#</th><th>Отбор</th><th>М</th><th>W-D-L</th><th>Г:Д</th><th>Точки</th></tr>
+<tr class='team-row rank-1' data-league="Eliteserien" data-team="Bodø/Glimt"><td>1</td><td class='tname'>Bodø/Glimt</td><td>8</td><td><span class='wdlPill'><b class='w'>5</b><b class='d'>3</b><b class='l'>0</b></span></td><td>14:1 (+13)</td><td>18</td></tr>
+<tr class='team-row rank-2' data-league="Eliteserien" data-team="Tromsø IL"><td>2</td><td class='tname'>Tromsø IL</td><td>9</td><td><span class='wdlPill'><b class='w'>5</b><b class='d'>2</b><b class='l'>2</b></span></td><td>10:4 (+6)</td><td>17</td></tr>
+<tr class='team-row rank-3' data-league="Eliteserien" data-team="Viking FK"><td>3</td><td class='tname'>Viking FK</td><td>6</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>2</b><b class='l'>0</b></span></td><td>11:2 (+9)</td><td>14</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Molde FK"><td>4</td><td class='tname'>Molde FK</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>4</b><b class='l'>1</b></span></td><td>10:5 (+5)</td><td>13</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Lillestrøm SK"><td>5</td><td class='tname'>Lillestrøm SK</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>3</b><b class='l'>1</b></span></td><td>8:5 (+3)</td><td>12</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="SK Brann"><td>6</td><td class='tname'>SK Brann</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>3</b><b class='l'>2</b></span></td><td>8:6 (+2)</td><td>12</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Rosenborg BK"><td>7</td><td class='tname'>Rosenborg BK</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>3</b><b class='l'>2</b></span></td><td>6:5 (+1)</td><td>12</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Vålerenga IF"><td>8</td><td class='tname'>Vålerenga IF</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>3</b><b class='l'>2</b></span></td><td>7:7 (+0)</td><td>12</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="HamKam"><td>9</td><td class='tname'>HamKam</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>2</b><b class='l'>2</b></span></td><td>7:7 (+0)</td><td>11</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Aalesunds FK"><td>10</td><td class='tname'>Aalesunds FK</td><td>9</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>4</b><b class='l'>3</b></span></td><td>8:13 (-5)</td><td>10</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Kristiansund BK"><td>11</td><td class='tname'>Kristiansund BK</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>3</b><b class='l'>2</b></span></td><td>6:5 (+1)</td><td>9</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Sarpsborg 08"><td>12</td><td class='tname'>Sarpsborg 08</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>3</b><b class='l'>2</b></span></td><td>2:2 (+0)</td><td>9</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Fredrikstad FK"><td>13</td><td class='tname'>Fredrikstad FK</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>3</b><b class='l'>2</b></span></td><td>4:4 (+0)</td><td>9</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Sandefjord Fotball"><td>14</td><td class='tname'>Sandefjord Fotball</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>3</b><b class='l'>2</b></span></td><td>4:5 (-1)</td><td>9</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="IK Start"><td>15</td><td class='tname'>IK Start</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>2</b><b class='l'>3</b></span></td><td>2:5 (-3)</td><td>8</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="KFUM Oslo"><td>16</td><td class='tname'>KFUM Oslo</td><td>9</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>4</b><b class='l'>4</b></span></td><td>3:6 (-3)</td><td>7</td></tr>
+</table>
+</div>
+<div>
+<h3>Гост — 2-ро полувреме</h3>
+<table><tr><th>#</th><th>Отбор</th><th>М</th><th>W-D-L</th><th>Г:Д</th><th>Точки</th></tr>
+<tr class='team-row rank-1' data-league="Eliteserien" data-team="Bodø/Glimt"><td>1</td><td class='tname'>Bodø/Glimt</td><td>8</td><td><span class='wdlPill'><b class='w'>6</b><b class='d'>1</b><b class='l'>1</b></span></td><td>9:3 (+6)</td><td>19</td></tr>
+<tr class='team-row rank-2' data-league="Eliteserien" data-team="Lillestrøm SK"><td>2</td><td class='tname'>Lillestrøm SK</td><td>8</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>2</b><b class='l'>2</b></span></td><td>7:3 (+4)</td><td>14</td></tr>
+<tr class='team-row rank-3' data-league="Eliteserien" data-team="Tromsø IL"><td>3</td><td class='tname'>Tromsø IL</td><td>7</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>1</b><b class='l'>2</b></span></td><td>10:7 (+3)</td><td>13</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="HamKam"><td>4</td><td class='tname'>HamKam</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>4</b><b class='l'>1</b></span></td><td>8:6 (+2)</td><td>13</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="SK Brann"><td>5</td><td class='tname'>SK Brann</td><td>8</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>4</b><b class='l'>2</b></span></td><td>9:7 (+2)</td><td>10</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Viking FK"><td>6</td><td class='tname'>Viking FK</td><td>9</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>7</b><b class='l'>1</b></span></td><td>4:4 (+0)</td><td>10</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Sandefjord Fotball"><td>7</td><td class='tname'>Sandefjord Fotball</td><td>8</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>7</b><b class='l'>1</b></span></td><td>4:5 (-1)</td><td>7</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Molde FK"><td>8</td><td class='tname'>Molde FK</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>1</b><b class='l'>4</b></span></td><td>4:6 (-2)</td><td>7</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Rosenborg BK"><td>9</td><td class='tname'>Rosenborg BK</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>3</b><b class='l'>3</b></span></td><td>4:5 (-1)</td><td>6</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="KFUM Oslo"><td>10</td><td class='tname'>KFUM Oslo</td><td>6</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>3</b><b class='l'>2</b></span></td><td>3:5 (-2)</td><td>6</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Aalesunds FK"><td>11</td><td class='tname'>Aalesunds FK</td><td>6</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>0</b><b class='l'>4</b></span></td><td>4:8 (-4)</td><td>6</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Kristiansund BK"><td>12</td><td class='tname'>Kristiansund BK</td><td>8</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>3</b><b class='l'>4</b></span></td><td>4:8 (-4)</td><td>6</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Sarpsborg 08"><td>13</td><td class='tname'>Sarpsborg 08</td><td>8</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>5</b><b class='l'>3</b></span></td><td>2:6 (-4)</td><td>5</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Vålerenga IF"><td>14</td><td class='tname'>Vålerenga IF</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>2</b><b class='l'>4</b></span></td><td>2:8 (-6)</td><td>5</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="Fredrikstad FK"><td>15</td><td class='tname'>Fredrikstad FK</td><td>8</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>2</b><b class='l'>5</b></span></td><td>4:12 (-8)</td><td>5</td></tr>
+<tr class='team-row' data-league="Eliteserien" data-team="IK Start"><td>16</td><td class='tname'>IK Start</td><td>9</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>2</b><b class='l'>6</b></span></td><td>4:17 (-13)</td><td>5</td></tr>
 </table>
 </div>
 </div>
@@ -1011,7 +1103,7 @@
 
 <section class="card">
 <h2 data-section="2"><span class="num">2</span> 🆚 Домакин срещу гост</h2>
-<div class="grid">
+<div class="grid venue-grid">
 <div>
 <h3>Най-добър домакин</h3>
 <table><tr><th>#</th><th>Отбор</th><th>М</th><th>W-D-L</th><th>Г:Д</th><th>Точки</th></tr>
@@ -1052,6 +1144,91 @@
 <tr class='team-row' data-league="Allsvenskan" data-team="Degerfors IF"><td>14</td><td class='tname'>Degerfors IF</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>2</b><b class='l'>4</b></span></td><td>6:12 (-6)</td><td>5</td></tr>
 <tr class='team-row' data-league="Allsvenskan" data-team="Halmstads BK"><td>15</td><td class='tname'>Halmstads BK</td><td>7</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>2</b><b class='l'>5</b></span></td><td>5:16 (-11)</td><td>2</td></tr>
 <tr class='team-row' data-league="Allsvenskan" data-team="Kalmar FF"><td>16</td><td class='tname'>Kalmar FF</td><td>7</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>1</b><b class='l'>6</b></span></td><td>5:14 (-9)</td><td>1</td></tr>
+</table>
+</div>
+
+<div>
+<h3>Домакин — 1-во полувреме</h3>
+<table><tr><th>#</th><th>Отбор</th><th>М</th><th>W-D-L</th><th>Г:Д</th><th>Точки</th></tr>
+<tr class='team-row rank-1' data-league="Allsvenskan" data-team="IK Sirius"><td>1</td><td class='tname'>IK Sirius</td><td>7</td><td><span class='wdlPill'><b class='w'>6</b><b class='d'>0</b><b class='l'>1</b></span></td><td>10:4 (+6)</td><td>18</td></tr>
+<tr class='team-row rank-2' data-league="Allsvenskan" data-team="Hammarby IF"><td>2</td><td class='tname'>Hammarby IF</td><td>8</td><td><span class='wdlPill'><b class='w'>5</b><b class='d'>2</b><b class='l'>1</b></span></td><td>11:3 (+8)</td><td>17</td></tr>
+<tr class='team-row rank-3' data-league="Allsvenskan" data-team="GAIS"><td>3</td><td class='tname'>GAIS</td><td>8</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>4</b><b class='l'>0</b></span></td><td>4:0 (+4)</td><td>16</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Kalmar FF"><td>4</td><td class='tname'>Kalmar FF</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>4</b><b class='l'>1</b></span></td><td>7:5 (+2)</td><td>13</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Djurgårdens IF"><td>5</td><td class='tname'>Djurgårdens IF</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>3</b><b class='l'>1</b></span></td><td>10:5 (+5)</td><td>12</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Västerås SK"><td>6</td><td class='tname'>Västerås SK</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>3</b><b class='l'>1</b></span></td><td>7:6 (+1)</td><td>12</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="IFK Göteborg"><td>7</td><td class='tname'>IFK Göteborg</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>4</b><b class='l'>1</b></span></td><td>3:2 (+1)</td><td>10</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="IF Elfsborg"><td>8</td><td class='tname'>IF Elfsborg</td><td>8</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>6</b><b class='l'>1</b></span></td><td>3:3 (+0)</td><td>9</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Halmstads BK"><td>9</td><td class='tname'>Halmstads BK</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>3</b><b class='l'>2</b></span></td><td>3:3 (+0)</td><td>9</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="BK Häcken"><td>10</td><td class='tname'>BK Häcken</td><td>8</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>3</b><b class='l'>3</b></span></td><td>7:9 (-2)</td><td>9</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="IF Brommapojkarna"><td>11</td><td class='tname'>IF Brommapojkarna</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>5</b><b class='l'>1</b></span></td><td>3:4 (-1)</td><td>8</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Malmö FF"><td>12</td><td class='tname'>Malmö FF</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>1</b><b class='l'>4</b></span></td><td>10:8 (+2)</td><td>7</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Mjällby AIF"><td>13</td><td class='tname'>Mjällby AIF</td><td>6</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>4</b><b class='l'>1</b></span></td><td>3:2 (+1)</td><td>7</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="AIK"><td>14</td><td class='tname'>AIK</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>1</b><b class='l'>4</b></span></td><td>3:8 (-5)</td><td>7</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Degerfors IF"><td>15</td><td class='tname'>Degerfors IF</td><td>8</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>4</b><b class='l'>4</b></span></td><td>1:7 (-6)</td><td>4</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Örgryte IS"><td>16</td><td class='tname'>Örgryte IS</td><td>7</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>3</b><b class='l'>4</b></span></td><td>2:6 (-4)</td><td>3</td></tr>
+</table>
+</div>
+<div>
+<h3>Гост — 1-во полувреме</h3>
+<table><tr><th>#</th><th>Отбор</th><th>М</th><th>W-D-L</th><th>Г:Д</th><th>Точки</th></tr>
+<tr class='team-row rank-1' data-league="Allsvenskan" data-team="IK Sirius"><td>1</td><td class='tname'>IK Sirius</td><td>7</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>2</b><b class='l'>1</b></span></td><td>8:3 (+5)</td><td>14</td></tr>
+<tr class='team-row rank-2' data-league="Allsvenskan" data-team="BK Häcken"><td>2</td><td class='tname'>BK Häcken</td><td>7</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>2</b><b class='l'>1</b></span></td><td>6:3 (+3)</td><td>14</td></tr>
+<tr class='team-row rank-3' data-league="Allsvenskan" data-team="IF Brommapojkarna"><td>3</td><td class='tname'>IF Brommapojkarna</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>4</b><b class='l'>1</b></span></td><td>4:4 (+0)</td><td>13</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Djurgårdens IF"><td>4</td><td class='tname'>Djurgårdens IF</td><td>6</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>3</b><b class='l'>0</b></span></td><td>7:3 (+4)</td><td>12</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Västerås SK"><td>5</td><td class='tname'>Västerås SK</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>3</b><b class='l'>1</b></span></td><td>6:6 (+0)</td><td>12</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="IF Elfsborg"><td>6</td><td class='tname'>IF Elfsborg</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>4</b><b class='l'>1</b></span></td><td>4:3 (+1)</td><td>10</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Mjällby AIF"><td>7</td><td class='tname'>Mjällby AIF</td><td>8</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>3</b><b class='l'>3</b></span></td><td>5:5 (+0)</td><td>9</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="IFK Göteborg"><td>8</td><td class='tname'>IFK Göteborg</td><td>8</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>3</b><b class='l'>3</b></span></td><td>8:12 (-4)</td><td>9</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="AIK"><td>9</td><td class='tname'>AIK</td><td>8</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>8</b><b class='l'>0</b></span></td><td>4:4 (+0)</td><td>8</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Halmstads BK"><td>10</td><td class='tname'>Halmstads BK</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>4</b><b class='l'>2</b></span></td><td>3:5 (-2)</td><td>7</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Malmö FF"><td>11</td><td class='tname'>Malmö FF</td><td>8</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>4</b><b class='l'>3</b></span></td><td>5:8 (-3)</td><td>7</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Hammarby IF"><td>12</td><td class='tname'>Hammarby IF</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>3</b><b class='l'>3</b></span></td><td>2:3 (-1)</td><td>6</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Örgryte IS"><td>13</td><td class='tname'>Örgryte IS</td><td>8</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>0</b><b class='l'>6</b></span></td><td>5:9 (-4)</td><td>6</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Kalmar FF"><td>14</td><td class='tname'>Kalmar FF</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>2</b><b class='l'>4</b></span></td><td>5:7 (-2)</td><td>5</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Degerfors IF"><td>15</td><td class='tname'>Degerfors IF</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>1</b><b class='l'>5</b></span></td><td>1:5 (-4)</td><td>4</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="GAIS"><td>16</td><td class='tname'>GAIS</td><td>7</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>4</b><b class='l'>3</b></span></td><td>2:7 (-5)</td><td>4</td></tr>
+</table>
+</div>
+<div>
+<h3>Домакин — 2-ро полувреме</h3>
+<table><tr><th>#</th><th>Отбор</th><th>М</th><th>W-D-L</th><th>Г:Д</th><th>Точки</th></tr>
+<tr class='team-row rank-1' data-league="Allsvenskan" data-team="Hammarby IF"><td>1</td><td class='tname'>Hammarby IF</td><td>8</td><td><span class='wdlPill'><b class='w'>7</b><b class='d'>0</b><b class='l'>1</b></span></td><td>15:2 (+13)</td><td>21</td></tr>
+<tr class='team-row rank-2' data-league="Allsvenskan" data-team="Kalmar FF"><td>2</td><td class='tname'>Kalmar FF</td><td>8</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>3</b><b class='l'>1</b></span></td><td>7:2 (+5)</td><td>15</td></tr>
+<tr class='team-row rank-3' data-league="Allsvenskan" data-team="IK Sirius"><td>3</td><td class='tname'>IK Sirius</td><td>7</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>2</b><b class='l'>1</b></span></td><td>11:5 (+6)</td><td>14</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="GAIS"><td>4</td><td class='tname'>GAIS</td><td>8</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>2</b><b class='l'>2</b></span></td><td>8:3 (+5)</td><td>14</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="IF Elfsborg"><td>5</td><td class='tname'>IF Elfsborg</td><td>8</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>1</b><b class='l'>3</b></span></td><td>8:6 (+2)</td><td>13</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="BK Häcken"><td>6</td><td class='tname'>BK Häcken</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>3</b><b class='l'>2</b></span></td><td>8:5 (+3)</td><td>12</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Örgryte IS"><td>7</td><td class='tname'>Örgryte IS</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>5</b><b class='l'>0</b></span></td><td>9:6 (+3)</td><td>11</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Västerås SK"><td>8</td><td class='tname'>Västerås SK</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>2</b><b class='l'>2</b></span></td><td>7:6 (+1)</td><td>11</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Degerfors IF"><td>9</td><td class='tname'>Degerfors IF</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>2</b><b class='l'>3</b></span></td><td>5:7 (-2)</td><td>11</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Malmö FF"><td>10</td><td class='tname'>Malmö FF</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>4</b><b class='l'>1</b></span></td><td>9:6 (+3)</td><td>10</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Djurgårdens IF"><td>11</td><td class='tname'>Djurgårdens IF</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>1</b><b class='l'>3</b></span></td><td>6:4 (+2)</td><td>10</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="AIK"><td>12</td><td class='tname'>AIK</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>4</b><b class='l'>2</b></span></td><td>4:4 (+0)</td><td>7</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="IF Brommapojkarna"><td>13</td><td class='tname'>IF Brommapojkarna</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>4</b><b class='l'>2</b></span></td><td>5:6 (-1)</td><td>7</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="IFK Göteborg"><td>14</td><td class='tname'>IFK Göteborg</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>1</b><b class='l'>4</b></span></td><td>5:7 (-2)</td><td>7</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Mjällby AIF"><td>15</td><td class='tname'>Mjällby AIF</td><td>6</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>3</b><b class='l'>2</b></span></td><td>3:3 (+0)</td><td>6</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Halmstads BK"><td>16</td><td class='tname'>Halmstads BK</td><td>7</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>1</b><b class='l'>5</b></span></td><td>3:10 (-7)</td><td>4</td></tr>
+</table>
+</div>
+<div>
+<h3>Гост — 2-ро полувреме</h3>
+<table><tr><th>#</th><th>Отбор</th><th>М</th><th>W-D-L</th><th>Г:Д</th><th>Точки</th></tr>
+<tr class='team-row rank-1' data-league="Allsvenskan" data-team="Malmö FF"><td>1</td><td class='tname'>Malmö FF</td><td>8</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>3</b><b class='l'>1</b></span></td><td>6:3 (+3)</td><td>15</td></tr>
+<tr class='team-row rank-2' data-league="Allsvenskan" data-team="IK Sirius"><td>2</td><td class='tname'>IK Sirius</td><td>7</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>2</b><b class='l'>1</b></span></td><td>11:5 (+6)</td><td>14</td></tr>
+<tr class='team-row rank-3' data-league="Allsvenskan" data-team="AIK"><td>3</td><td class='tname'>AIK</td><td>8</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>4</b><b class='l'>1</b></span></td><td>7:5 (+2)</td><td>13</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="BK Häcken"><td>4</td><td class='tname'>BK Häcken</td><td>7</td><td><span class='wdlPill'><b class='w'>4</b><b class='d'>0</b><b class='l'>3</b></span></td><td>7:6 (+1)</td><td>12</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="GAIS"><td>5</td><td class='tname'>GAIS</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>2</b><b class='l'>2</b></span></td><td>5:5 (+0)</td><td>11</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Mjällby AIF"><td>6</td><td class='tname'>Mjällby AIF</td><td>8</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>4</b><b class='l'>2</b></span></td><td>9:9 (+0)</td><td>10</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Västerås SK"><td>7</td><td class='tname'>Västerås SK</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>4</b><b class='l'>1</b></span></td><td>4:5 (-1)</td><td>10</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Hammarby IF"><td>8</td><td class='tname'>Hammarby IF</td><td>7</td><td><span class='wdlPill'><b class='w'>3</b><b class='d'>1</b><b class='l'>3</b></span></td><td>5:7 (-2)</td><td>10</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Djurgårdens IF"><td>9</td><td class='tname'>Djurgårdens IF</td><td>6</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>3</b><b class='l'>1</b></span></td><td>4:3 (+1)</td><td>9</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="IF Elfsborg"><td>10</td><td class='tname'>IF Elfsborg</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>2</b><b class='l'>3</b></span></td><td>5:6 (-1)</td><td>8</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="IF Brommapojkarna"><td>11</td><td class='tname'>IF Brommapojkarna</td><td>8</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>2</b><b class='l'>4</b></span></td><td>8:10 (-2)</td><td>8</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Degerfors IF"><td>12</td><td class='tname'>Degerfors IF</td><td>7</td><td><span class='wdlPill'><b class='w'>2</b><b class='d'>2</b><b class='l'>3</b></span></td><td>5:7 (-2)</td><td>8</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Örgryte IS"><td>13</td><td class='tname'>Örgryte IS</td><td>8</td><td><span class='wdlPill'><b class='w'>1</b><b class='d'>1</b><b class='l'>6</b></span></td><td>1:12 (-11)</td><td>4</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Kalmar FF"><td>14</td><td class='tname'>Kalmar FF</td><td>7</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>3</b><b class='l'>4</b></span></td><td>0:7 (-7)</td><td>3</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="IFK Göteborg"><td>15</td><td class='tname'>IFK Göteborg</td><td>8</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>3</b><b class='l'>5</b></span></td><td>3:12 (-9)</td><td>3</td></tr>
+<tr class='team-row' data-league="Allsvenskan" data-team="Halmstads BK"><td>16</td><td class='tname'>Halmstads BK</td><td>7</td><td><span class='wdlPill'><b class='w'>0</b><b class='d'>2</b><b class='l'>5</b></span></td><td>2:11 (-9)</td><td>2</td></tr>
 </table>
 </div>
 </div>
