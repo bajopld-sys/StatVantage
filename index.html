@@ -133,6 +133,10 @@
   .predTable td:not(.mLabel):not(.note) { font-weight: 650; font-variant-numeric: tabular-nums; }
   .predTable .avgRow { border-top: 2px solid var(--cat-blue); background: rgba(79,157,255,0.08); }
   .predTable .avgRow td { color: var(--cat-blue) !important; font-weight: 800 !important; }
+  .predTable .lowConfRow { border-top-color: var(--cat-orange); background: rgba(255,138,61,0.10); }
+  .predTable .lowConfRow td { color: var(--cat-orange) !important; }
+  .lowConf { font-size: 10.5px; font-weight: 700; color: var(--cat-orange);
+              text-transform: none; letter-spacing: 0; cursor: help; }
   .mbPanel {
     margin-top: 12px; border: 1px solid var(--grid-line); border-radius: 10px;
     padding: 4px 12px; background: rgba(255,255,255,0.015);
@@ -263,7 +267,7 @@
 <tr><td class='mLabel'>Модел В — v1 (xg/xa) (2/2 играча)</td><td>37%</td><td>21%</td><td>42%</td><td>71%</td><td>69%</td></tr>
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (9/10 играча)</td><td>40%</td><td>28%</td><td>32%</td><td>54%</td><td>59%</td></tr>
 <tr><td class='mLabel'>Модел Г (точков)</td><td>32%</td><td>26%</td><td>42%</td><td>—</td><td>—</td></tr>
-<tr class='avgRow'><td class='mLabel'>Средно</td><td>35%</td><td>26%</td><td>40%</td><td>—</td><td>—</td></tr>
+<tr class='avgRow lowConfRow'><td class='mLabel'>Средно <span class='lowConf' title='И двете страни под 40% — никоя няма реално предимство, не се избира механично'>⚠ неясно</span></td><td>35%</td><td>26%</td><td>40%</td><td>—</td><td>—</td></tr>
 </table>
 
 <details class="mbPanel">
@@ -1039,7 +1043,7 @@
 <tr><td class='mLabel'>Модел В — v1 (xg/xa)</td><td colspan='5' class='note'>няма данни</td></tr>
 <tr><td class='mLabel'>Модел В — v2 (атрибути) (9/7 играча)</td><td>48%</td><td>24%</td><td>28%</td><td>68%</td><td>68%</td></tr>
 <tr><td class='mLabel'>Модел Г (точков)</td><td>32%</td><td>25%</td><td>43%</td><td>—</td><td>—</td></tr>
-<tr class='avgRow'><td class='mLabel'>Средно</td><td>38%</td><td>26%</td><td>36%</td><td>—</td><td>—</td></tr>
+<tr class='avgRow lowConfRow'><td class='mLabel'>Средно <span class='lowConf' title='И двете страни под 40% — никоя няма реално предимство, не се избира механично'>⚠ неясно</span></td><td>38%</td><td>26%</td><td>36%</td><td>—</td><td>—</td></tr>
 </table>
 
 <details class="mbPanel">
