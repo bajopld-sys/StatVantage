@@ -123,6 +123,8 @@
     display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px;
   }
   .predDate { font-size: 11.5px; font-weight: 500; color: var(--ink-muted); }
+  .statusConfirmed { color: var(--good); font-weight: 700; }
+  .statusPredicted { color: var(--cat-orange); font-weight: 700; }
   .pairPickWrap { display: inline-flex; align-items: center; margin-right: 8px; cursor: pointer; }
   .pairPick { width: 15px; height: 15px; accent-color: var(--cat-blue); cursor: pointer; margin: 0; }
   .pairPick:disabled { cursor: not-allowed; opacity: .35; }
@@ -260,7 +262,7 @@
 <h2 data-section="pred">🔮 Прогнози за предстоящия кръг</h2>
 
 <div class="predCard">
-<h3><label class="pairPickWrap"><input type="checkbox" class="pairPick" data-home="HamKam" data-away="Aalesunds FK" title="Зареди двойката в таблиците отдолу"></label>HamKam — Aalesunds FK <span class="predDate">2026-08-09 18:00 · потвърден състав</span></h3>
+<h3><label class="pairPickWrap"><input type="checkbox" class="pairPick" data-home="HamKam" data-away="Aalesunds FK" title="Зареди двойката в таблиците отдолу"></label>HamKam — Aalesunds FK <span class="predDate">2026-08-09 18:00 · <span class='statusConfirmed'>потвърден състав</span></span></h3>
 <table class="predTable">
 <tr><th>Модел</th><th>1</th><th>X</th><th>2</th><th>Над2.5</th><th>ГГ</th></tr>
 <tr><td class='mLabel'>Dixon-Coles</td><td>45%</td><td>23%</td><td>31%</td><td>—</td><td>—</td></tr>
@@ -318,7 +320,7 @@
 </div>
 
 <div class="predCard">
-<h3><label class="pairPickWrap"><input type="checkbox" class="pairPick" data-home="Kristiansund BK" data-away="Molde FK" title="Зареди двойката в таблиците отдолу"></label>Kristiansund BK — Molde FK <span class="predDate">2026-08-09 20:15 · прогнозен състав</span></h3>
+<h3><label class="pairPickWrap"><input type="checkbox" class="pairPick" data-home="Kristiansund BK" data-away="Molde FK" title="Зареди двойката в таблиците отдолу"></label>Kristiansund BK — Molde FK <span class="predDate">2026-08-09 20:15 · <span class='statusPredicted'>прогнозен състав</span></span></h3>
 <table class="predTable">
 <tr><th>Модел</th><th>1</th><th>X</th><th>2</th><th>Над2.5</th><th>ГГ</th></tr>
 <tr><td class='mLabel'>Dixon-Coles</td><td>17%</td><td>26%</td><td>57%</td><td>—</td><td>—</td></tr>
@@ -822,7 +824,7 @@
 <h2 data-section="pred">🔮 Прогнози за предстоящия кръг</h2>
 
 <div class="predCard">
-<h3><label class="pairPickWrap"><input type="checkbox" class="pairPick" data-home="IK Sirius" data-away="IF Brommapojkarna" title="Зареди двойката в таблиците отдолу"></label>IK Sirius — IF Brommapojkarna <span class="predDate">2026-08-10 20:00 · прогнозен състав</span></h3>
+<h3><label class="pairPickWrap"><input type="checkbox" class="pairPick" data-home="IK Sirius" data-away="IF Brommapojkarna" title="Зареди двойката в таблиците отдолу"></label>IK Sirius — IF Brommapojkarna <span class="predDate">2026-08-10 20:00 · <span class='statusPredicted'>прогнозен състав</span></span></h3>
 <table class="predTable">
 <tr><th>Модел</th><th>1</th><th>X</th><th>2</th><th>Над2.5</th><th>ГГ</th></tr>
 <tr><td class='mLabel'>Dixon-Coles</td><td>86%</td><td>9%</td><td>5%</td><td>—</td><td>—</td></tr>
@@ -880,12 +882,12 @@
 </div>
 
 <div class="predCard">
-<h3><label class="pairPickWrap"><input type="checkbox" class="pairPick" data-home="Västerås SK" data-away="Djurgårdens IF" title="Зареди двойката в таблиците отдолу"></label>Västerås SK — Djurgårdens IF <span class="predDate">2026-08-10 20:00 · прогнозен състав</span></h3>
+<h3><label class="pairPickWrap"><input type="checkbox" class="pairPick" data-home="Västerås SK" data-away="Djurgårdens IF" title="Зареди двойката в таблиците отдолу"></label>Västerås SK — Djurgårdens IF <span class="predDate">2026-08-10 20:00 · <span class='statusPredicted'>прогнозен състав</span></span></h3>
 <table class="predTable">
 <tr><th>Модел</th><th>1</th><th>X</th><th>2</th><th>Над2.5</th><th>ГГ</th></tr>
 <tr><td class='mLabel'>Dixon-Coles</td><td>23%</td><td>20%</td><td>56%</td><td>—</td><td>—</td></tr>
 <tr><td class='mLabel'>Модел В — v1 (xg/xa)</td><td colspan='5' class='note'>няма данни</td></tr>
-<tr><td class='mLabel'>Модел В — v2 (атрибути) (10/11 играча)</td><td>37%</td><td>26%</td><td>37%</td><td>62%</td><td>65%</td></tr>
+<tr><td class='mLabel'>Модел В — v2 (атрибути) (10/10 играча)</td><td>37%</td><td>26%</td><td>37%</td><td>63%</td><td>65%</td></tr>
 <tr><td class='mLabel'>Модел Г (точков)</td><td>29%</td><td>23%</td><td>48%</td><td>—</td><td>—</td></tr>
 <tr class='avgRow'><td class='mLabel'>Средно</td><td>30%</td><td>23%</td><td>47%</td><td>—</td><td>—</td></tr>
 </table>
